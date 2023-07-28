@@ -1,0 +1,47 @@
+service: documentmanager
+frameworkVersion: '3'
+
+package:
+  patterns:
+  - 'node_modules/**'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  stage: dev
+  region: us-east-1
+ 
+
+functions:
+
+  insertDocService:
+    handler: src/api/insertDoc.handler
+    events:
+      - http:
+          path: /doc
+          method: post
+          cors: true   
+
+  getDocService:
+    handler: src/api/getDoc.handler
+    events:
+      - http:
+          path: /doc
+          method: get
+          cors: true              
+  
+  userRegService:
+    handler: src/api/userReg.handler
+    events:
+      - http:
+          path: /user/reg
+          method: post
+          cors: true 
+
+  addDataService:  
+    handler: src/api/addData.handler
+    events:
+      - http:
+          path: /data
+          method: post
+          cors: true       
