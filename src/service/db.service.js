@@ -1,14 +1,16 @@
 const AWS = require('aws-sdk');
 const dynamoDB = new AWS.DynamoDB.DocumentClient();
+const short = require('shortid');
 
-exports.addRecords=async(reqPayload)=>{
+exports.addRecords=async(reqPayload,userId)=>{
+    const id=short();
     const params = {
         TableName: 'Records',
         Item: {
-            "id": reqPayload.id,
+            "id": id,
             "title": reqPayload.title,
             "description": reqPayload.description,
-            "user_id":reqPayload.user_id
+            "user_id":userId
         }
       };
       const data = await dynamoDB.put(params).promise();

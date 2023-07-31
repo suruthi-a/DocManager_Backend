@@ -11,37 +11,44 @@ provider:
   stage: dev
   region: us-east-1
  
-
 functions:
 
-  insertDocService:
-    handler: src/api/insertDoc.handler
+  userRegisterService:  
+    handler: src/api/userRegister.handler
     events:
       - http:
-          path: /doc
+          path: user/reg
+          method: post
+          cors: true  
+
+  verifyUserService:  
+    handler: src/api/verifyUser.handler
+    events:
+      - http:
+          path: user/verify
           method: post
           cors: true   
 
-  getDocService:
-    handler: src/api/getDoc.handler
+  userLoginService:  
+    handler: src/api/userLogin.handler
     events:
       - http:
-          path: /doc
-          method: get
-          cors: true              
-  
-  userRegService:
-    handler: src/api/userReg.handler
-    events:
-      - http:
-          path: /user/reg
+          path: user/login
           method: post
           cors: true 
 
-  addDataService:  
-    handler: src/api/addData.handler
+  searchIndexService:  
+    handler: src/api/searchIndex.handler
     events:
       - http:
-          path: /data
+          path: index
+          method: get
+          cors: true 
+
+  addDocumentsService:
+    handler: src/api/addDocuments.handler
+    events:
+      - http:
+          path: /add/documents
           method: post
-          cors: true       
+          cors: true                                                     

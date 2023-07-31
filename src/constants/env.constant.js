@@ -5,7 +5,6 @@ const ENV_CONSTANTS = {
     UNAUTHORIZED:401,
     NOTFOUND:404,
     BAD_REQUEST:400,
-    TABLE_NAME:'Users'
   };
   
   module.exports= {ENV_CONSTANTS};

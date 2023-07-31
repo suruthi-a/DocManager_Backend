@@ -9,8 +9,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@aws-sdk/client-opensearch": "^3.379.1",
+    "@aws-sdk/protocol-http": "^3.374.0",
     "@elastic/elasticsearch": "^8.9.0",
+    "aws-jwt-verify": "^4.0.0",
     "aws-sdk": "^2.1422.0",
+    "axios": "^1.4.0",
+    "elasticsearch": "^16.7.3",
+    "shortid": "^2.2.16",
     "uuid": "^9.0.0"
   }
 }
